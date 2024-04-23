@@ -10,7 +10,7 @@
 #   Mini shell using some of the LDAP functionalities of the library
 #
 # Author:
-#   Mathieu Gascon-Lefebvre (@mlefebvre)
+#   Mathieu Gascon-Lefebvre (@mlef    def __init__(self, api_port, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler):
 #
 import re
 import string

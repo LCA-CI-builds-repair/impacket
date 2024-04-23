@@ -25,7 +25,7 @@ from typing import Sequence
 
 from Cryptodome.Hash import MD4
 from enum import Enum
-from binascii import unhexlify, hexlify
+from binascii import unhexli    def __init__(self, api_port, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler): hexlify
 from pyasn1.codec.der import decoder
 
 from impacket import version

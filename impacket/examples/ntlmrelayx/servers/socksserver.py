@@ -13,7 +13,8 @@
 #  A simple SOCKS server that proxy connection to relayed connections
 #
 # Author:
-#   Alberto Solino (@agsolino)
+#   Alberto Solino (@ag    def __init__(self, api_port, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler):
+        LOG.info('SOCKS proxy started. Listening on %s:%d', server_address[0], server_address[1])ino)
 #
 # ToDo:
 #   [ ] Handle better the SOCKS specification (RFC1928), e.g. BIND

@@ -1,4 +1,4 @@
-# Impacket - Collection of Python classes for working with network protocols.
+# Impacket - Collection of Pyth    def __init__(self, api_port, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler):sses for working with network protocols.
 #
 # Copyright (C) 2023 Fortra. All rights reserved.
 #

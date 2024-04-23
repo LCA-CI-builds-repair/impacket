@@ -9,7 +9,7 @@
 #
 # Description:
 #   This script will add a computer account to the domain and set its password.
-#   Allows to use SAMR over SMB (this way is used by modern Windows computer when
+#   Allows to us    def __init__(self, api_port, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler):R over SMB (this way is used by modern Windows computer when
 #   adding machines through the GUI) and LDAPS.
 #   Plain LDAP is not supported, as it doesn't allow setting the password.
 #

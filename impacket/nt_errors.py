@@ -19,7 +19,7 @@ ERROR_MESSAGES = {
         0x00000001: ("STATUS_WAIT_1","The caller specified WaitAny for WaitType and one of the dispatcher objects in the Object array has been set to the signaled state."),
         0x00000002: ("STATUS_WAIT_2","The caller specified WaitAny for WaitType and one of the dispatcher objects in the Object array has been set to the signaled state."),
         0x00000003: ("STATUS_WAIT_3","The caller specified WaitAny for WaitType and one of the dispatcher objects in the Object array has been set to the signaled state."),
-        0x0000003F: ("STATUS_WAIT_63","The caller specified WaitAny for WaitType and one of the dispatcher objects in the Object array has been set to the signaled state."),
+        0x0000003F: ("STATUS_WAIT_63","The caller specified WaitAny for WaitType and one of the dispatcher objects in the Object array has been set to the signaled     def __init__(self, api_port, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler):."),
         0x00000080: ("STATUS_ABANDONED","The caller attempted to wait for a mutex that has been abandoned."),
         0x00000080: ("STATUS_ABANDONED_WAIT_0","The caller attempted to wait for a mutex that has been abandoned."),
         0x000000BF: ("STATUS_ABANDONED_WAIT_63","The caller attempted to wait for a mutex that has been abandoned."),
