@@ -1,5 +1,24 @@
-#!/usr/bin/env python
-# Impacket - Collection of Python classes for working with network protocols.
+## Impacket - Collection of Python classes for working with network protocols.
+#
+# Copyright (C) 2023 Fortra. All rights reserved.
+
+# This software is provided under a slightly modified version
+# of the Apache Software License. See the accompanying LICENSE file
+# for more information.
+
+# Description:
+#   SOCKS proxy server/client
+
+# Import necessary modules
+import socket
+import threading
+import select
+import logging
+import struct
+import array
+import timeenv python
+# I        # Start the SOCKS proxy server and log the server address and port
+        LOG.info('SOCKS proxy server started. Listening on %s:%d', server_address[0], server_address[1])packet - Collection of Python classes for working with network protocols.
 #
 # Copyright (C) 2023 Fortra. All rights reserved.
 #

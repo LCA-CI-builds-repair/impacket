@@ -21,10 +21,23 @@ except NameError:
         for element in iterable:
             if element:
                 return True
-        return False
+        return Fal            # Determine whether to use arguments in __new__ and __init__
+            if __new__ is object.__new__:
+                use_args = False
+            else:
+                use_args = True
+
+            return __new__, save_new, use_args
 
 
-class _RouteClassAttributeToGetattr(object):
+########################################################
+# In order to support Python 2 and 3 with a single
+# codebase, we create the Enum methods separately
+# and then utilize the `type(name, bases, dict)` method
+# to create the class.
+########################################################
+temp_enum_dict = {}
+temp_enum_dict['__doc__'] = "Generic enumeration.\n\n    Derive from this class to define new enumerations.\n\n"lassAttributeToGetattr(object):
     """Route attribute access on a class to __getattr__.
 
     This is a descriptor, used to define attributes that act differently when

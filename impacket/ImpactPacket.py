@@ -30,9 +30,402 @@ from functools import reduce
 # Python >=3.2 `tobytes` and `tostring`
 if sys.version_info[0] >= 3 and sys.version_info[1] >= 2:
     array_tobytes = lambda array_object: array_object.tobytes()
-    array_frombytes = lambda array_object, bytes: array_object.frombytes(bytes)
-else:
-    array_tobytes = lambda array_object: array_object.tostring()
+    array_frombytes = lambda array_object, bytes: array_object.fclass ImpactPacket:
+    def fragment_by_size(self, aSize):
+        """
+        Fragment the packet by the specified size.
+        """
+        data_len = len(self.get_data_as_string())
+        num_frags = data_len // aSize
+
+        if data_len % aSize:
+            num_frags += 1
+
+        size_list = []
+        for i in range(0, num_frags):
+ class ImpactPacket:
+    def add_option(self, option):
+      class ImpactPacket:
+    def set_th_ack(self, aValue):
+        self.set_long(8, aValue)
+
+    def get_th_ack(self):
+     class ImpactPacket:
+    def get_ACK(self):
+        """
+        Get the ACK flag.
+        """
+        return self.get_flag(16)
+
+    def set_ACK(self):
+        """
+        Set the ACK flag.
+        """
+        return self.set_flags(16)
+
+    def reset_ACK(self):
+        """
+        Reset the ACK flag.
+        """
+        return self.reset_flags(16)
+
+    def get_PSH(self):
+        """
+        Get the PSH flag.
+        """
+        returnclass ImpactPacket:
+    def set_icmp_ip_address(self, ip):
+        """
+        Set the ICMP IP address.
+        """
+        self.set_ip_address(4, ip)
+
+    def get_icmp_id(self):
+        """
+        Get the ICMP identifier.
+        """
+        return self.get_word(4)
+
+    def set_icmp_id(self, aValue):
+        """
+        Set the ICMP identifier.
+        """
+        self.set_word(4, aValue)
+
+    def get_icmp_seq(self):
+        """
+        Get the ICMP sequence number.
+        """
+        return self.get_word(6)
+
+    def set_icmp_seq(self, aValue):
+        """
+        Set the ICMP sequence number.
+        """
+        self.set_word(6, aValue)
+
+    def get_icmp_void(self):
+        """
+        Get the ICMP void value.
+        """
+        return self.get_long(4)
+
+    def set_icmp_void(self, aValue):
+        """
+        Set the ICMP void value.
+        """
+        self.set_long(4, aValue)
+
+    def get_icmp_nextmtu(self):
+        """
+        Get the ICMP next MTU value.
+        """
+        return self.get_word(6)
+
+    def set_icmp_nextmtu(self, aValue):
+        """
+        Set the ICMP next MTU value.
+        """
+        self.set_word(6, aValue)
+
+    def get_icmp_num_addrs(self):
+        """
+        Get the ICMP number of addresses.
+        """
+        return self.get_byte(4)
+
+    def set_icmp_num_addrs(self, aValue):
+        """
+        Set the ICMP number of addresses.
+        """
+        self.set_byte(4, aValue)
+
+    def get_icmp_wpa(self):
+        """
+        Get the ICMP WPA value.
+        """
+        return self.get_byte(5)
+
+    def set_icmp_wpa(self, aValue):
+        """
+        Set the ICMP WPA value.
+        """
+        self.set_byte(5, aValue)
+
+    def get_icmp_lifetime(self):
+        """
+        Get the ICMP lifetime value.
+        """
+        return self.get_word(6)
+
+    def set_icmp_lifetime(self, aValue):
+        """
+        Set the ICMP lifetime value.
+        """
+        self.set_word(6, aValue)      """
+        Set the PSH flag.
+        """
+        return self.set_flags(8)
+
+    def reset_PSH(self):
+        """
+        Reset the PSH flag.
+        """
+        return self.reset_flags(8)
+
+    def get_RST(self):
+        """
+        Get the RST flag.
+        """
+        return self.get_flag(4)
+
+    def set_RST(self):
+        """
+        Set the RST flag.
+        """
+        return self.set_flags(4)
+
+    def reset_RST(self):
+        """
+        Reset the RST flag.
+        """
+        return self.reset_flags(4)
+
+    def get_SYN(self):
+        """
+        Get the SYN flag.
+        """
+        return self.get_flag(2)
+
+    def set_SYN(self):
+        """
+        Set the SYN flag.
+        """
+        return self.set_flags(2)
+
+    def reset_SYN(self):
+        """
+        Reset the SYN flag.
+        """
+        return self.reset_flags(2)
+
+    def get_FIN(self):
+        """
+        Get the FIN flag.
+        """
+        return self.get_flag(1)
+
+    def set_FIN(self):
+        """
+        Set the FIN flag.
+        """
+        return self.set_flags(1)
+
+    def reset_FIN(self):
+        """
+        Reset the FIN flag.
+        """
+        return self.reset_flags(1)
+
+    # Overridden Methods
+
+    def get_header_size(self):
+        """
+        Get the total header size including options.
+        """
+        return 20 + len(self.get_padded_options())t_th_flags(self, aValue):
+        """
+        Set the TCP flags in the TCP header.
+        """
+        masked = self.get_word(12) & (~self.TCP_FLAGS_MASK)
+        nb = masked | (aValue & self.TCP_FLAGS_MASK)
+        self.set_word(12, nb, ">")
+
+    def get_th_flags(self):
+        """
+        Get the TCP flags from the TCP header.
+        """
+        return self.get_word(12) & self.TCP_FLAGS_MASK
+
+    def set_th_win(self, aValue):
+        """
+        Set the TCP window size in the TCP header.
+        """
+        self.set_word(14, aValue)
+
+    def get_th_win(self):
+        """
+        Get the TCP window size from the TCP header.
+        """
+        return self.get_word(14)
+
+    def set_th_sum(self, aValue):
+        """
+        Set the TCP checksum in the TCP header and disable auto-checksum.
+        """
+        self.set_word(16, aValue)
+        self.auto_checksum = 0
+
+    def get_th_sum(self):
+        """
+        Get the TCP checksum from the TCP header.
+        """
+        return self.get_word(16)
+
+    def set_th_urp(self, aValue):
+        """
+        Set the TCP urgent pointer in the TCP header.
+        """
+        self.set_word(18, aValue)
+
+    def get_th_urp(self):
+        """
+        Get the TCP urgent pointer from the TCP header.
+        """
+        return self.get_word(18)
+
+    # Flag accessors
+
+    def get_th_reserved(self):
+        """
+        Get the reserved bits from the TCP header.
+        """
+        tmp_value = self.get_byte(12) & 0x0f
+        return tmp_value
+
+    def get_th_off(self):
+        """
+        Get the TCP data offset from the TCP header.
+        """
+        tmp_value = self.get_byte(12) >> 4
+        return tmp_value
+
+    def set_th_off(self, aValue):
+        """
+        Set the TCP data offset in the TCP header.
+        """
+        mask = 0xF0
+        masked = self.get_byte(12) & (~mask)
+        nb = masked | ((aValue << 4) & mask)
+        self.set_byte(12, nb)
+
+    def get_CWR(self):
+        """
+        Get the Congestion Window Reduced (CWR) flag.
+        """
+        return self.get_flag(128)
+
+    def set_CWR(self):
+        """
+        Set the Congestion Window Reduced (CWR) flag.
+        """
+        self.set_flags(128)
+
+    def reset_CWR(self):
+        """
+        Reset the Congestion Window Reduced (CWR) flag.
+        """
+        self.reset_flags(128)
+
+    def get_ECE(self):
+        """
+        Get the ECN-Echo (ECE) flag.
+        """
+        return self.get_flag(64)     self.__option_list.append(option)
+
+        sum = 0
+        for op in self.__option_list:
+            sum += op.get_size()
+
+        if sum > 40:
+            raise ImpactPacketException("Cannot add TCP option, would overflow option space")
+
+    def get_options(self):
+        """
+        Get the list of TCP options in the packet.
+        """
+        return self.__option_list
+
+    def swapSourceAndDestination(self):
+        """
+        Swap the source and destination ports in the TCP header.
+        """
+        oldSource = self.get_th_sport()
+        self.set_th_sport(self.get_th_dport())
+        self.set_th_dport(oldSource)
+
+    #
+    # Header field accessors
+    #
+
+    def set_th_sport(self, aValue):
+        """
+        Set the source port in the TCP header.
+        """
+        self.set_word(0, aValue)
+
+    def get_th_sport(self):
+        """
+        Get the source port from the TCP header.
+        """
+        return self.get_word(0)
+
+    def get_th_dport(self):
+        """
+        Get the destination port from the TCP header.
+        """
+        return self.get_word(2)
+
+    def set_th_dport(self, aValue):
+        """
+        Set the destination port in the TCP header.
+        """
+        self.set_word(2, aValue)e)
+        return self.fragment_by_list(size_list)
+
+    def get_ip_ttl(self):
+        """
+        Get the IP Time to Live (TTL) value.
+        """
+        return self.get_byte(8)
+
+    def set_ip_ttl(self, value):
+        """
+        Set the IP Time to Live (TTL) value.
+        """
+        self.set_byte(8, value)
+
+    def get_ip_p(self):
+        """
+        Get the IP Protocol value.
+        """
+        return self.get_byte(9)
+
+    def set_ip_p(self, value):
+        """
+        Set the IP Protocol value.
+        """
+        self.set_byte(9, value)
+
+    def get_ip_sum(self):
+        """
+        Get the IP Header Checksum value.
+        """
+        return self.get_word(10)
+
+    def set_ip_sum(self, value):
+        """
+        Set the IP Header Checksum value and disable auto-checksum.
+        """
+        self.auto_checksum = 0
+        self.set_word(10, value)
+
+    def reset_ip_sum(self):
+        """
+        Reset the IP Header Checksum value to 0x0000 and enable auto-checksum.
+        """
+        self.set_ip_sum(0x0000)
+        self.auto_checksum = 1tes = lambda array_object: array_object.tostring()
     array_frombytes = lambda array_object, bytes: array_object.fromstring(bytes)
 
 

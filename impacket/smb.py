@@ -16,9 +16,88 @@
 #
 # This software is provided 'as-is', without any express or implied warranty.
 # In no event will the author be held liable for any damages arising from the
-# use of this software.
-#
-# Permission is granted to anyone to use this software for any purpose,
+#     def get_ctime(self):
+        """
+        Get the creation time of the file.
+        """
+        return self.__ctime
+
+    def get_ctime_epoch(self):
+        """
+        Get the creation time of the file in epoch format.
+        """
+        return self.__convert_smbtime(self.__ctime)
+
+    def get_mtime(self):
+        """
+        Get the modification time of the file.
+        """
+        return self.__mtime
+
+    def get_mtime_epoch(self):
+        """
+        Get the modification time of the file in epoch format.
+        """
+        return self.__convert_smbtime(self.__mtime)
+
+    def get_atime(self):
+        """
+        Get the access time of the file.
+        """
+        return self.__atime
+
+    def get_atime_epoch(self):
+        """
+        Get the access time of the file in epoch format.
+        """
+        return self.__convert_smbtime(self.__atime)
+
+    def get_filesize(self):
+        """
+        Get the size of the file.
+        """
+        return self.__filesize
+
+    def get_allocsize(self):
+        """
+        Get the allocated size of the file.
+        """
+        return self.__allocsize
+
+    def get_attributes(self):
+        """
+        Get the attributes of the file.
+        """
+        return self.__attribs
+
+    def is_archive(self):
+        """
+        Check if the file has the archive attribute.
+        """
+        return self.__attribs & ATTR_ARCHIVE
+
+    def is_compressed(self):
+        """
+        Check if the file is compressed.
+        """
+        return self.__attribs & ATTR_COMPRESSED
+
+    def is_normal(self):
+        """
+        Check if the file is normal.
+        """
+        return self.__attribs & ATTR_NORMAL
+
+    def is_hidden(self):
+        """
+        Check if the file is hidden.
+        """
+        return self.__attribs & ATTR_HIDDEN
+
+    def is_readonly(self):
+        """
+        Check if the file is read-only.
+        """ granted to anyone to use this software for any purpose,
 # including commercial applications, and to alter it and redistribute it
 # freely, subject to the following restrictions:
 #

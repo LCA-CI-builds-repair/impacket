@@ -16,8 +16,56 @@ from impacket.IP6_Address import IP6_Address
 
 class ICMP6(Header):    
     #IP Protocol number for ICMP6
-    IP_PROTOCOL_NUMBER = 58
-    protocol = IP_PROTOCOL_NUMBER   #ImpactDecoder uses the constant "protocol" as the IP Protocol Number
+    IP_PROTOCOL_NUclass ICMP6:
+    def set_note_information_data(self, data):
+        """
+        Set the note information data in the ICMPv6 packet.
+        """
+        payload_bytes = self.child().get_bytes()
+        payload_bytes[12:] = array.array('B', data)
+        self.child().set_bytes(payload_bytes)
+
+    def get_note_information_data(self):
+        """
+        Get the note information data from the ICMPv6 packet.
+        """
+        return self.child().get_bytes()[12:]
+
+    def get_echo_id(self):
+        """
+        Get the ICMPv6 echo identifier.
+        """
+        return self.child().get_word(0)
+    
+    def get_echo_sequence_number(self):
+        """
+        Get the ICMPv6 echo sequence number.
+        """
+        return self.child().get_word(2)
+    
+    def get_echo_arbitrary_data(self):
+        """
+        Get the ICMPv6 echo arbitrary data.
+        """
+        return self.child().get_bytes()[4:]
+    
+    def get_mtu(self):
+        """
+        Get the Maximum Transmission Unit (MTU) from the ICMPv6 packet.
+        """
+        return self.child().get_long(0)
+        
+    def get_parm_problem_pointer(self):
+        """
+        Get the pointer value in the ICMPv6 parameter problem message.
+        """
+        return self.child().get_long(0)
+        
+    def get_originating_packet_data(self):
+        """
+        Get the originating packet data from the ICMPv6 packet.
+        """
+        # Method implementation needed IP_PROTOCOL_NUMBER   #ImpactDecoder uses the constant "protocol" as the IP Protocol Number
     
     #Size of ICMP6 header (excluding payload)
     HEADER_SIZE = 4

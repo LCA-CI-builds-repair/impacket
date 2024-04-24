@@ -2,8 +2,55 @@
 #
 # Copyright (C) 2023 Fortra. All rights reserved.
 #
-# This software is provided under a slightly modified version
-# of the Apache Software License. See the accompanying LICENSE file
+# This software is provided under a slightly mod    def send(self, data=0, forceWriteAndx=0, forceRecv=0):
+        """
+        Send data over the transport.
+        """
+        raise RuntimeError('virtual function')
+
+    def recv(self, forceRecv=0, count=0):
+        """
+        Receive data from the transport.
+        """
+        raise RuntimeError('virtual function')
+
+    def disconnect(self):
+        """
+        Disconnect from the transport.
+        """
+        raise RuntimeError('virtual function')
+
+    def get_socket(self):
+        """
+        Get the socket used by the transport.
+        """
+        raise RuntimeError('virtual function')
+
+    def get_connect_timeout(self):
+        """
+        Get the connection timeout value.
+        """
+        return self.__connect_timeout
+
+    def set_connect_timeout(self, timeout):
+        """
+        Set the connection timeout value.
+        """
+        self.__connect_timeout = timeout
+
+    def getRemoteName(self):
+        """
+        Get the remote name associated with the transport.
+        """
+        return self.__remoteName
+
+    def setRemoteName(self, remoteName):
+        """
+        Set the remote name for the transport.
+        
+        This method only makes sense before connection for most protocols.
+        """
+        self.__remoteName = remoteName Apache Software License. See the accompanying LICENSE file
 # for more information.
 #
 # Description:
