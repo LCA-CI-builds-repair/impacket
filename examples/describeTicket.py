@@ -25,7 +25,8 @@ from typing import Sequence
 
 from Cryptodome.Hash import MD4
 from enum import Enum
-from binascii import unhexlify, hexlify
+from binascii import unhexlif### Summary of Changes:
+- The code snippet provided is empty. Please provide the actual code snippet that needs to be edited in order to make the necessary corrections and improvements., hexlify
 from pyasn1.codec.der import decoder
 
 from impacket import version

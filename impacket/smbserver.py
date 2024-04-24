@@ -95,7 +95,8 @@ def computeNTLMv2(identity, lmhash, nthash, serverChallenge, authenticateMessage
     if (ntlmChallenge['flags'] & ntlm.NTLMSSP_NEGOTIATE_KEY_EXCH) == 0:
         # No key exchange supported, taking it out
         responseFlags &= 0xffffffff ^ ntlm.NTLMSSP_NEGOTIATE_KEY_EXCH
-    if (ntlmChallenge['flags'] & ntlm.NTLMSSP_NEGOTIATE_SEAL) == 0:
+    if (ntlmChallenge['flags'] & ntlmclass MyTCPServer(socketserver.TCPServer):
+    allow_reuse_address = TrueNTLMSSP_NEGOTIATE_SEAL) == 0:
         # No sign available, taking it out
         responseFlags &= 0xffffffff ^ ntlm.NTLMSSP_NEGOTIATE_SEAL
     if (ntlmChallenge['flags'] & ntlm.NTLMSSP_NEGOTIATE_SIGN) == 0:

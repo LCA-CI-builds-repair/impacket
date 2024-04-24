@@ -10,7 +10,7 @@
 #   Mini shell using some of the LDAP functionalities of the library
 #
 # Author:
-#   Mathieu Gascon-Lefebvre (@mlefebvre)
+#   Mathieu Gascon-Lefebvre (@mlefeattributes = ['objectSid'] + [argument for argument in arguments[1:]]e)
 #
 import re
 import string

@@ -1,5 +1,5 @@
-setuptools
-six
+setuptoolpyreadline==2.1;sys_platform == 'win32'
+dsinternals==1.5.0six
 charset_normalizer
 pyasn1>=0.2.3
 pycryptodomex

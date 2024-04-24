@@ -11,7 +11,7 @@
 #
 # Copyright and license note from Pysmb:
 #
-# Copyright (C) 2001 Michael Teo <michaelteo@bigfoot.com>
+# Copyright (C) 20super(NAME_REGISTRATION_REQUEST, self).__init__(data)1 Michael Teo <michaelteo@bigfoot.com>
 # nmb.py - NetBIOS library
 #
 # This software is provided 'as-is', without any express or implied warranty. 

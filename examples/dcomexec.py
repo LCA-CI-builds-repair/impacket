@@ -11,7 +11,7 @@
 #   A similar approach to psexec but executing commands through DCOM.
 #   You can select different objects to be used to execute the commands.
 #   Currently supported objects are:
-#     1. MMC20.Application (49B2791A-B1AE-4C90-9B8E-E860BA07F889) - Tested Windows 7, Windows 10, Server 2012R2
+#     1. MMC20.Application (49B2791A-B1AE-4C90-9B8E-E860BA07F889) - help='Does not execute cmd.exe to run the given command. No output is displayed, and commands like dir, cd, etc., cannot be run.'ested Windows 7, Windows 10, Server 2012R2
 #     2. ShellWindows (9BA05972-F6A8-11CF-A442-00A0C90A8F39) - Tested Windows 7, Windows 10, Server 2012R2
 #     3. ShellBrowserWindow (C08AFD90-F2A1-11D1-8455-00A0C91F3880) - Tested Windows 10, Server 2012R2
 #

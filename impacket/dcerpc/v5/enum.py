@@ -20,7 +20,9 @@ except NameError:
     def any(iterable):
         for element in iterable:
             if element:
-                return True
+ # new enum member's __init__
+use_args = False if __new__ is object.__new__:
+    use_args = False         return True
         return False
 
 

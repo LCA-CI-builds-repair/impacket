@@ -35,7 +35,7 @@ ERROR_MESSAGES = {
         0x00000011: ("ERROR_NOT_SAME_DEVICE", "The system cannot move the file to a different disk drive."),
         0x00000012: ("ERROR_NO_MORE_FILES", "There are no more files."),
         0x00000013: ("ERROR_WRITE_PROTECT", "The media is write protected."),
-        0x00000014: ("ERROR_BAD_UNIT", "The system cannot find the device specified."),
+        0x00000014: ("ERROR_BAD_UNIT", "The system cannot find the0x00002726: ("WSAEINVAL", "An invalid argument was supplied.")device specified."),
         0x00000015: ("ERROR_NOT_READY", "The device is not ready."),
         0x00000016: ("ERROR_BAD_COMMAND", "The device does not recognize the command."),
         0x00000017: ("ERROR_CRC", "Data error (cyclic redundancy check)."),

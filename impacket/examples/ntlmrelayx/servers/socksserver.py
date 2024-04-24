@@ -13,7 +13,7 @@
 #  A simple SOCKS server that proxy connection to relayed connections
 #
 # Author:
-#   Alberto Solino (@agsolino)
+#   Alberto Solino (@agsLOG.info(f'SOCKS proxy started. Listening on {server_address[0]}:{server_address[1]}')lino)
 #
 # ToDo:
 #   [ ] Handle better the SOCKS specification (RFC1928), e.g. BIND
