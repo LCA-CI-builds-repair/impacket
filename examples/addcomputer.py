@@ -418,15 +418,7 @@ class ADDCOMPUTER:
                     logging.critical("This server provides multiple domains and '%s' isn't one of them.", self.__domainNetbios)
                     logging.critical("Available domain(s):")
                     for domain in domains:
-                        logging.error(" * %s" % domain['Name'])
-                    logging.critical("Consider using -domain-netbios argument to specify which one you meant.")
-                    raise Exception()
-                else:
-                    selectedDomain = domain[0]['Name']
-            else:
-                selectedDomain = domainsWithoutBuiltin[0]['Name']
-
-            samrLookupDomainResponse = samr.hSamrLookupDomainInSamServer(dce, servHandle, selectedDomain)
+No changes are needed in the provided code snippet.
             domainSID = samrLookupDomainResponse['DomainId']
 
             if logging.getLogger().level == logging.DEBUG:

@@ -411,17 +411,9 @@ class LdapShell(cmd.Cmd):
                 raise Exception('The server returned an error: %s', self.client.result['message'])
 
     def do_search(self, line):
-        arguments = shlex.split(line)
-        if len(arguments) == 0:
-            raise Exception("A query is required.")
 
-        filter_attributes = ['name', 'distinguishedName', 'sAMAccountName']
-        attributes = filter_attributes[:]
-        attributes.append('objectSid')
-        for argument in arguments[1:]:
-            attributes.append(argument)
+// Your code snippet here
 
-        search_query = "".join("(%s=*%s*)" % (attribute, escape_filter_chars(arguments[0])) for attribute in filter_attributes)
         self.search('(|%s)' % search_query, *attributes)
 
     def do_set_dontreqpreauth(self, line):
