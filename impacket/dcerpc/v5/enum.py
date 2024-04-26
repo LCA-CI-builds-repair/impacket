@@ -536,9 +536,10 @@ class EnumMeta(type):
             # assigned to the enum member name will be passed to __new__ and to the
             # new enum member's __init__
             if __new__ is object.__new__:
-                use_args = False
+                use_arguments = False
             else:
-                use_args = True
+                use_arguments = True
+                use_arguments = True
 
             return __new__, False, use_args
     else:

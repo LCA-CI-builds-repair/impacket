@@ -72,7 +72,7 @@ class CDP(Header):
     def get_type(self):
         return self.get_word(4)
         
-    def get_lenght(self):      
+    def get_length(self):      
         return self.get_word(6)
 
     def getElements(self):
@@ -278,11 +278,11 @@ class Capabilities(CDPElement):
     def is_source_route_bridge(self):
         return self._source_route_bridge
         
-    def is_switch(self):
+    def _is_switch(self):
         return self._switch
 
-    def is_host(self):
-        return self.is_host
+    def _is_host(self):
+        return self._is_host
 
     def is_igmp_capable(self):
         return self._igmp_capable

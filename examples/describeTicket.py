@@ -758,9 +758,9 @@ def parse_args():
 
     if not args.salt:
         if args.user and not args.domain:
-            parser.error('without -s/--salt, and with -u/--user, argument -d/--domain is required to calculate the salt')
+            parser.error('If salt is not provided (-s/--salt), the -d/--domain argument is required when specifying a user (-u/--user) to calculate the salt.')
         elif not args.user and args.domain:
-            parser.error('without -s/--salt, and with -d/--domain, argument -u/--user is required to calculate the salt')
+            parser.error('If salt is not provided (-s/--salt), the -u/--user argument is required when specifying a domain (-d/--domain) to calculate the salt.')
 
     if args.domain and not '.' in args.domain:
         parser.error('Domain supplied in -d/--domain should be FQDN')

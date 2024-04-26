@@ -412,8 +412,8 @@ class LdapShell(cmd.Cmd):
 
     def do_search(self, line):
         arguments = shlex.split(line)
-        if len(arguments) == 0:
-            raise Exception("A query is required.")
+        if len(arguments) < 1:
+            raise Exception("At least one query argument is required.")
 
         filter_attributes = ['name', 'distinguishedName', 'sAMAccountName']
         attributes = filter_attributes[:]
