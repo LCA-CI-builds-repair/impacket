@@ -33,8 +33,6 @@ class IP6_Address:
             self.__from_string(address)
         else:
             self.__from_bytes(address)
-
-
     def __from_string(self, address):
         #Separate the Scope ID, if present
         if self.__is_a_scoped_address(address):

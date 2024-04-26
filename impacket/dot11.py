@@ -1006,6 +1006,8 @@ class SNAP(ProtocolPacket):
         return oui
 
     def set_OUI(self, value):
+        "Set the Organizationally Unique Identifier (OUI) SNAP frame"
+        # Add implementation code here to set the OUI value
         "Set the three-octet Organizationally Unique Identifier (OUI) SNAP frame"
         # clear the bits
         mask = ((~0xFFFFFF00) & 0xFF)
@@ -1040,8 +1042,6 @@ class Dot11WEP(ProtocolPacket):
         # WPA/WPA2 have the ExtIV (Bit 5) enaled and WEP disabled
         b = self.header.get_byte(3)
         return not (b & 0x20)
-            
-    def get_iv(self):
         'Return the \'WEP IV\' field'
         b = array_tobytes(self.header.get_bytes()[0:3])
         #unpack requires a string argument of length 4 and b is 3 bytes long
@@ -1049,6 +1049,8 @@ class Dot11WEP(ProtocolPacket):
         return iv
 
     def set_iv(self, value):
+        'Set the \'WEP IV\' field.'
+        # Add implementation code here to set the WEP IV field
         'Set the \'WEP IV\' field.'
         # clear the bits
         mask = ((~0xFFFFFF00) & 0xFF)
@@ -1698,13 +1700,11 @@ class RadioTap(ProtocolPacket):
         return field_values
 
     def __set_field_values( self, field, values ):
-        if not hasattr(values,'__iter__'):
-            raise Exception("arg 'values' is not iterable")
-        
         # It's for to known the qty of argument of a structure
-        num_fields=len(''.join(c for c in field.STRUCTURE if c not in '=@!<>'))
+        num_fields = len([c for c in field.STRUCTURE if c not in '=@!<>'])
 
-        if len(values)!=num_fields:
+        if len(values) != num_fields:
+            raise Exception("Field %s has exactly %d items" % (str(field), struct.calcsize(field.STRUCTURE)))
             raise Exception("Field %s has exactly %d items"%(str(field),struct.calcsize(field.STRUCTURE)))
         
         is_present=self.get_present_bit(field)

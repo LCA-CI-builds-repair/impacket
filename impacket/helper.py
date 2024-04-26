@@ -108,6 +108,7 @@ class ThreeBytesBigEndian(Field):
         return value
 
     def setter(self, o, value):
+        # Add implementation code here to set the value for the field
         # clear the bits
         mask = ((~0xFFFFFF00) & 0xFF)
         masked = o.header.get_long(self.index, ">") & mask
