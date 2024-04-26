@@ -295,9 +295,8 @@ if __name__ == '__main__':
     parser.add_argument('-brute-versions', action='store_true', help='Bruteforce major versions of found UUIDs')
     parser.add_argument('-opnum-max', action='store', type=int, default=64, help='Bruteforce opnums from 0 to N, default 64')
     parser.add_argument('-version-max', action='store', type=int, default=64, help='Bruteforce versions from 0 to N, default 64')
-    parser.add_argument('-auth-level', action='store', type=int, default=6, help='MS-RPCE auth level, from 1 to 6, default 6 '
-                                                                                 '(RPC_C_AUTHN_LEVEL_PKT_PRIVACY)')
-    parser.add_argument('-uuid', action='store', help='Test only this UUID')
+    parser.add_argument('-auth-level', action='store', type=int, default=6, help='MS-RPCE auth level, from 1 to 6 (default 6 - RPC_C_AUTHN_LEVEL_PKT_PRIVACY)')
+    parser.add_argument('-uuid', action='store', help='Specify a UUID for testing purposes')
     parser.add_argument('-debug', action='store_true', help='Turn DEBUG output ON')
 
     group = parser.add_argument_group('ncacn-np-details')

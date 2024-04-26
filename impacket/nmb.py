@@ -776,9 +776,11 @@ class NetBIOSSession:
     def get_remote_type(self):
         return self.__remote_type
 
+    def get_myname(self):
+        return self.__myname
+
     def close(self):
         self._sock.close()
-
     def get_socket(self):
         return self._sock
 

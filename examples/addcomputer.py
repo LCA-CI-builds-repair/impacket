@@ -419,8 +419,8 @@ class ADDCOMPUTER:
                     logging.critical("Available domain(s):")
                     for domain in domains:
                         logging.error(" * %s" % domain['Name'])
-                    logging.critical("Consider using -domain-netbios argument to specify which one you meant.")
-                    raise Exception()
+                    logging.critical("Consider using the -domain-netbios argument to specify the intended domain.")
+                    raise ValueError("No domain specified. Use the -domain-netbios argument.")
                 else:
                     selectedDomain = domain[0]['Name']
             else:

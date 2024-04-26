@@ -535,10 +535,7 @@ class EnumMeta(type):
             # if a non-object.__new__ is used then whatever value/tuple was
             # assigned to the enum member name will be passed to __new__ and to the
             # new enum member's __init__
-            if __new__ is object.__new__:
-                use_args = False
-            else:
-                use_args = True
+            use_args = (__new__ is not object.__new__)
 
             return __new__, False, use_args
     else:

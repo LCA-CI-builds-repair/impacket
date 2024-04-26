@@ -627,10 +627,8 @@ if __name__ == '__main__':
                             'This is useful when target is the NetBIOS name and you cannot resolve it')
     group.add_argument('-port', choices=['139', '445'], nargs='?', default='445', metavar="destination port",
                        help='Destination port to connect to SMB Server')
-    group.add_argument('-service-name', action='store', metavar="service_name", default = '', help='The name of the service'
-                                                                                ' used to trigger the payload')
-    group.add_argument('-remote-binary-name', action='store', metavar="remote_binary_name", default = None, help='This will '
-                                                            'be the name of the executable uploaded on the target')
+    group.add_argument('-service-name', action='store', metavar="service_name", default='', help='Specify the service name used to trigger the payload')
+    group.add_argument('-remote-binary-name', action='store', metavar="remote_binary_name", default=None, help='Specify the name of the executable uploaded on the target')
 
     if len(sys.argv)==1:
         parser.print_help()

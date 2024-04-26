@@ -566,11 +566,11 @@ if __name__ == '__main__':
                         help='DCOM object to be used to execute the shell command (default=ShellWindows)')
     parser.add_argument('-com-version', action='store', metavar = "MAJOR_VERSION:MINOR_VERSION", help='DCOM version, '
                         'format is MAJOR_VERSION:MINOR_VERSION e.g. 5.7')
-    parser.add_argument('-shell-type', action='store', default = 'cmd', choices = ['cmd', 'powershell'], help='choose '
+    parser.add_argument('-shell-type', action='store', default='cmd', choices=['cmd', 'powershell'], help='choose '
                         'a command processor for the semi-interactive shell')
-    parser.add_argument('command', nargs='*', default = ' ', help='command to execute at the target. If empty it will '
+    parser.add_argument('command', nargs='*', default=' ', help='command to execute at the target. If empty it will '
                                                                   'launch a semi-interactive shell')
-    parser.add_argument('-silentcommand', action='store_true', default = False,
+    parser.add_argument('-silentcommand', action='store_true', default=False)
                         help='does not execute cmd.exe to run given command (no output, cannot run dir/cd/etc.)')
 
     group = parser.add_argument_group('authentication')

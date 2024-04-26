@@ -87,8 +87,8 @@ class Word(Field):
         o.header.set_word(self.index, value, self.order)
 
 class Long(Field):        
-    def __init__(self, index, order="!"):
-        Field.__init__(self, index)        
+    def __init__(self, index, order="!", **kwargs):
+        Field.__init__(self, index, order=order, **kwargs)
         self.order = order
         
     def getter(self, o):
@@ -103,10 +103,9 @@ class ThreeBytesBigEndian(Field):
                 
     def getter(self, o):
         b = ip.array_tobytes(o.header.get_bytes()[self.index:self.index+3])
-        #unpack requires a string argument of length 4 and b is 3 bytes long
+        # unpack requires a string argument of length 4, and 'b' is 3 bytes long
         (value,) = struct.unpack('!L', b'\x00'+b)
         return value
-
     def setter(self, o, value):
         # clear the bits
         mask = ((~0xFFFFFF00) & 0xFF)

@@ -245,10 +245,8 @@ if __name__ == '__main__':
 			logging.critical('Please, provide either alternative password or NT hash for RPC authentication.')
 			sys.exit(1)
 		else:  # if options.altpass is not None and options.althash is not None
-			logging.critical('Argument -altpass not allowed with argument -althash.')
-			sys.exit(1)
-	else:
-		altUsername = ''
+			logging.critical('Arguments -altpass and -althash cannot be used together.')
+	altUsername = ''
 
 	try:
 		if altUsername == '':

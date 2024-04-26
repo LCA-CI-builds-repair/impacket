@@ -282,7 +282,7 @@ class Capabilities(CDPElement):
         return self._switch
 
     def is_host(self):
-        return self.is_host
+        return self._is_host
 
     def is_igmp_capable(self):
         return self._igmp_capable

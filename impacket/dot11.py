@@ -1040,11 +1040,10 @@ class Dot11WEP(ProtocolPacket):
         # WPA/WPA2 have the ExtIV (Bit 5) enaled and WEP disabled
         b = self.header.get_byte(3)
         return not (b & 0x20)
-            
     def get_iv(self):
         'Return the \'WEP IV\' field'
         b = array_tobytes(self.header.get_bytes()[0:3])
-        #unpack requires a string argument of length 4 and b is 3 bytes long
+        # unpack requires a string argument of length 4, and 'b' is 3 bytes long
         (iv,) = struct.unpack('!L', b'\x00'+b)
         return iv
 
