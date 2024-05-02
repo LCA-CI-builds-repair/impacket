@@ -114,14 +114,14 @@ class TLVContainer(object):
             ary.extend(self.n2ary(len(v)))
             ary.extend(v)
             
-        return ary
-
-    
-    def get_packet(self):
-        return array_tobytes(self.to_ary())
-    
-    def set_parent(self, my_parent):
-        self.__parent = my_parent
+def n2ary(n, B):
+    if n == 0:
+        return '0'
+    digits = []
+    while n:
+        digits.append(int(n % B))
+        n //= B
+    return ''.join(map(str, digits[::-1]))
         
     def parent(self):
         return self.__parent

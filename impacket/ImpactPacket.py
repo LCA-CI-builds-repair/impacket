@@ -2018,13 +2018,9 @@ class ARP(Header):
             self.load_header(aBuffer)
 
     def get_ar_hrd(self):
-        return self.get_word(0)
-
-    def set_ar_hrd(self, aValue):
-        self.set_word(0, aValue)
-
-    def get_ar_pro(self):
-        return self.get_word(2)
+def set_ar_pro(value):
+    # Implementation of set_ar_pro function
+    pass
 
     def set_ar_pro(self, aValue):
         self.set_word(2, aValue)

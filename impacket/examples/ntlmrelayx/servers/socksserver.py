@@ -457,13 +457,9 @@ class SocksRequestHandler(socketserver.BaseRequestHandler):
             self.sendReplyError(replyField.CONNECTION_REFUSED)
         except Exception as e:
             LOG.debug('SOCKS END: %s' % str(e))
-
-
-class SOCKS(socketserver.ThreadingMixIn, socketserver.TCPServer):
-    def __init__(self, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler, api_port):
-        LOG.info('SOCKS proxy started. Listening on %s:%d', server_address[0], server_address[1])
-
-        self.activeRelays = {}
+class SOCKS:
+    def __init__(self, api_port=1080):
+        self.api_port = api_port
         self.socksPlugins = {}
         self.restAPI = None
         self.activeConnectionsWatcher = None
