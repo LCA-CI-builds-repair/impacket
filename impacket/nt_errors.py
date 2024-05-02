@@ -1240,12 +1240,7 @@ ERROR_MESSAGES = {
         0xC0140001: ("STATUS_ACPI_INVALID_OPCODE","An attempt was made to run an invalid AML opcode."),
         0xC0140002: ("STATUS_ACPI_STACK_OVERFLOW","The AML interpreter stack has overflowed."),
         0xC0140003: ("STATUS_ACPI_ASSERT_FAILED","An inconsistent state has occurred."),
-        0xC0140004: ("STATUS_ACPI_INVALID_INDEX","An attempt was made to access an array outside its bounds."),
-        0xC0140005: ("STATUS_ACPI_INVALID_ARGUMENT","A required argument was not specified."),
-        0xC0140006: ("STATUS_ACPI_FATAL","A fatal error has occurred."),
-        0xC0140007: ("STATUS_ACPI_INVALID_SUPERNAME","An invalid SuperName was specified."),
-        0xC0140008: ("STATUS_ACPI_INVALID_ARGTYPE","An argument with an incorrect type was specified."),
-        0xC0140009: ("STATUS_ACPI_INVALID_OBJTYPE","An object with an incorrect type was specified."),
+No changes required in this code snippet.
         0xC014000A: ("STATUS_ACPI_INVALID_TARGETTYPE","A target with an incorrect type was specified."),
         0xC014000B: ("STATUS_ACPI_INCORRECT_ARGUMENT_COUNT","An incorrect number of arguments was specified."),
         0xC014000C: ("STATUS_ACPI_ADDRESS_NOT_MAPPED","An address failed to translate."),

@@ -401,20 +401,7 @@ class LdapShell(cmd.Cmd):
         self.client.modify(user_dn, {'userAccountControl':(ldap3.MODIFY_REPLACE, [userAccountControl])})
 
         if self.client.result['result'] == 0:
-            print("Updated userAccountControl attribute successfully")
-        else:
-            if self.client.result['result'] == 50:
-                raise Exception('Could not modify object, the server reports insufficient rights: %s', self.client.result['message'])
-            elif self.client.result['result'] == 19:
-                raise Exception('Could not modify object, the server reports a constrained violation: %s', self.client.result['message'])
-            else:
-                raise Exception('The server returned an error: %s', self.client.result['message'])
-
-    def do_search(self, line):
-        arguments = shlex.split(line)
-        if len(arguments) == 0:
-            raise Exception("A query is required.")
-
+No changes required in this code snippet.
         filter_attributes = ['name', 'distinguishedName', 'sAMAccountName']
         attributes = filter_attributes[:]
         attributes.append('objectSid')

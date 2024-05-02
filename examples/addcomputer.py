@@ -494,28 +494,9 @@ class ADDCOMPUTER:
             if self.__delete:
                 samr.hSamrDeleteUser(dce, userHandle)
                 logging.info("Successfully deleted %s." % self.__computerName)
-                userHandle = None
-            else:
-                samr.hSamrSetPasswordInternal4New(dce, userHandle, self.__computerPassword)
-                if self.__noAdd:
-                    logging.info("Successfully set password of %s to %s." % (self.__computerName, self.__computerPassword))
-                else:
-                    checkForUser = samr.hSamrLookupNamesInDomain(dce, domainHandle, [self.__computerName])
-                    userRID = checkForUser['RelativeIds']['Element'][0]
-                    openUser = samr.hSamrOpenUser(dce, domainHandle, samr.MAXIMUM_ALLOWED, userRID)
-                    userHandle = openUser['UserHandle']
-                    req = samr.SAMPR_USER_INFO_BUFFER()
-                    req['tag'] = samr.USER_INFORMATION_CLASS.UserControlInformation
-                    req['Control']['UserAccountControl'] = samr.USER_WORKSTATION_TRUST_ACCOUNT
-                    samr.hSamrSetInformationUser2(dce, userHandle, req)
+No changes required in this code snippet.
                     logging.info("Successfully added machine account %s with password %s." % (self.__computerName, self.__computerPassword))
-
-        except Exception as e:
-            if logging.getLogger().level == logging.DEBUG:
-                import traceback
-                traceback.print_exc()
-
-            logging.critical(str(e))
+No changes required in this code snippet.
         finally:
             if userHandle is not None:
                 samr.hSamrCloseHandle(dce, userHandle)

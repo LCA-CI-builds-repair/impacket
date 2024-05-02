@@ -749,7 +749,6 @@ def parse_args():
                                   'The information is encrypted using the AS reply key. Attack primitive known as UnPAC-the-Hash. (https://www.thehacker.recipes/ad/movement/kerberos/unpac-the-hash)'
     credential_info.add_argument('--asrep-key', action="store", metavar="HEXKEY", help='AS reply key for PAC Credentials decryption')
 
-
     if len(sys.argv) == 1:
         parser.print_help()
         sys.exit(1)
@@ -758,6 +757,7 @@ def parse_args():
 
     if not args.salt:
         if args.user and not args.domain:
+            # Add your desired logic here for the nested if statement
             parser.error('without -s/--salt, and with -u/--user, argument -d/--domain is required to calculate the salt')
         elif not args.user and args.domain:
             parser.error('without -s/--salt, and with -d/--domain, argument -u/--user is required to calculate the salt')
