@@ -244,7 +244,7 @@ if __name__ == '__main__':
 		elif options.altpass is None and options.althash is None:
 			logging.critical('Please, provide either alternative password or NT hash for RPC authentication.')
 			sys.exit(1)
-		else:  # if options.altpass is not None and options.althash is not None
+		else:  # if both options.altpass and options.althash are provided
 			logging.critical('Argument -altpass not allowed with argument -althash.')
 			sys.exit(1)
 	else:
