@@ -418,7 +418,7 @@ class LdapShell(cmd.Cmd):
         filter_attributes = ['name', 'distinguishedName', 'sAMAccountName']
         attributes = filter_attributes[:]
         attributes.append('objectSid')
-        for argument in arguments[1:]:
+        for argument in arguments:
             attributes.append(argument)
 
         search_query = "".join("(%s=*%s*)" % (attribute, escape_filter_chars(arguments[0])) for attribute in filter_attributes)
