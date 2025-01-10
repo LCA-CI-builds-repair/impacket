@@ -113,7 +113,7 @@ class SOCKS4_REPLY(Structure):
 activeConnections = Queue()
 
 # Taken from https://stackoverflow.com/questions/474528/what-is-the-best-way-to-repeatedly-execute-a-function-every-x-seconds-in-python
-# Thanks https://stackoverflow.com/users/624066/mestrelion
+# Thanks to https://stackoverflow.com/users/624066/mestrelion
 class RepeatedTimer(object):
   def __init__(self, interval, function, *args, **kwargs):
     self._timer = None
@@ -203,7 +203,7 @@ def keepAliveTimer(server):
                                 LOG.debug('Removing active relay for %s@%s:%s' % (user, target, port))
                     else:
                         LOG.debug('Skipping %s@%s:%s since it\'s being used at the moment' % (user, target, port))
-
+                        
 def activeConnectionsWatcher(server):
     while True:
         # This call blocks until there is data, so it doesn't loop endlessly
@@ -460,7 +460,7 @@ class SocksRequestHandler(socketserver.BaseRequestHandler):
 
 
 class SOCKS(socketserver.ThreadingMixIn, socketserver.TCPServer):
-    def __init__(self, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler, api_port):
+    def __init__(self, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler, api_port=0):
         LOG.info('SOCKS proxy started. Listening on %s:%d', server_address[0], server_address[1])
 
         self.activeRelays = {}
