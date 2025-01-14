@@ -282,7 +282,7 @@ def webService(addr, port):
     return _webService
 
 class SocksRequestHandler(socketserver.BaseRequestHandler):
-    def __init__(self, request, client_address, server):
+    def __init__(self, request, client_address, server, api_port=None):
         self.__socksServer = server
         self.__ip, self.__port = client_address
         self.__connSocket= request
