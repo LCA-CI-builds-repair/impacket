@@ -152,6 +152,7 @@ class SocksRelay:
     PLUGIN_SCHEME = ''
 
     def __init__(self, targetHost, targetPort, socksSocket, activeRelays):
+        self.input_validation_enabled = True
         self.targetHost = targetHost
         self.targetPort = targetPort
         self.socksSocket = socksSocket
