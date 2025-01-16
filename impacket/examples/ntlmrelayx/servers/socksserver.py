@@ -65,7 +65,7 @@ class SOCKS5_GREETINGS(Structure):
     structure = (
         ('VER','B=5'),
         #('NMETHODS','B=0'),
-        ('METHODS','B*B'),
+        ('METHODS','B=1'),
     )
 
 
