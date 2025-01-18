@@ -460,7 +460,43 @@ class SocksRequestHandler(socketserver.BaseRequestHandler):
 
 
 class SOCKS(socketserver.ThreadingMixIn, socketserver.TCPServer):
-    def __init__(self, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler, api_port):
+    def __init__(self, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler, HandlerClass=SocksRequestHandler, api_port=0):
+        super().__init__(server_address, HandlerClass)
+    def __init__(self, server_address=('127.0.0.1', 1080), HandlerClass=SocksRequestHandler, handler_class=SocksRequestHandler, api_port=0):
+        super().__init__(server_address, HandlerClass)
+        self.activeRelays = {}
+        self.socksPlugins = {}
+        self.restAPI = None
+        self.activeConnectionsWatcher = None
+        self.supportedSchemes = []
+        socketserver.TCPServer.allow_reuse_address = True
+
+        # Let's register the socksplugins plugins we have
+        from impacket.examples.ntlmrelayx.servers.socksplugins import SOCKS_RELAYS
+
+        for relay in SOCKS_RELAYS:
+            LOG.info('%s loaded..' % relay.PLUGIN_NAME)
+            self.socksPlugins[relay.PLUGIN_SCHEME] = relay
+            self.supportedSchemes.append(relay.PLUGIN_SCHEME)
+
+        # Let's create a timer to keep the connections up.
+        self.__timer = RepeatedTimer(KEEP_ALIVE_TIMER, keepAliveTimer, self)
+
+        # Let's start our RESTful API
+        self.restAPI = Thread(target=webService(server_address[0], api_port), args=(self, ))
+        self.restAPI.daemon = True
+        self.restAPI.start()
+
+        # Let's start out worker for active connections
+        self.activeConnectionsWatcher = Thread(target=activeConnectionsWatcher, args=(self, ))
+        self.activeConnectionsWatcher.daemon = True
+        self.activeConnectionsWatcher.start()
+
+    def shutdown(self):
+        self.__timer.stop()
+        del self.restAPI
+        del self.activeConnectionsWatcher
+        return socketserver.TCPServer.shutdown(self)
         LOG.info('SOCKS proxy started. Listening on %s:%d', server_address[0], server_address[1])
 
         self.activeRelays = {}
