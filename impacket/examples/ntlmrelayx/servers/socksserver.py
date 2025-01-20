@@ -459,8 +459,7 @@ class SocksRequestHandler(socketserver.BaseRequestHandler):
             LOG.debug('SOCKS END: %s' % str(e))
 
 
-class SOCKS(socketserver.ThreadingMixIn, socketserver.TCPServer):
-    def __init__(self, server_address=('127.0.0.1', 1080), handler_class=SocksRequestHandler, api_port):
+    def __init__(self, server_address, handler_class=SocksRequestHandler, api_port=0):
         LOG.info('SOCKS proxy started. Listening on %s:%d', server_address[0], server_address[1])
 
         self.activeRelays = {}
